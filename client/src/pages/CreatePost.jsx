@@ -24,11 +24,12 @@ const handleSubmit = () => {
 
 }
 const handleChange = (e) => {
-
+setForm({ ...form, [e.target.name]: e.target.value})
 }
 
 const handleSurpriseMe = () => {
-
+const randomPrompt = getRandomPrompt(form.prompt);
+setForm({...form, prompt: randomPrompt})
 }
 
 
@@ -98,7 +99,7 @@ className="text-white bg-green-700 font-medium rounded-md text-sm w-full sm:w-au
 <p className='mt-2 text-[#666e75] text-[14px]'>Once you have crated the image you want, you may share the image with the community!!</p>
 <button 
 type='submit'
-className='mt-3 text-white '
+className='mt-3 text-white bg-[#6469ff] font-medium rounded-md text-sm w-full sm:w-auto px-5 py-2.5 text-center'
 >
   {loading ? 'Sharing...' : 'Share with the community'}
 </button>
